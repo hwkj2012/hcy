@@ -1,0 +1,9 @@
+# 部署到 Cloudflare Pages 时排除的文件（不公开）
+.github/
+.deploy/
+deploy-package/
+.gitignore
+.assetsignore
+node_modules/
+wrangler.toml
+*.md

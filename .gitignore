@@ -1,0 +1,23 @@
+# 部署脚本与本地工具（不入库）
+.deploy/
+.tmpcache/
+.wrangler/
+deploy-package/
+
+# 依赖
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# 日志与临时文件
+*.log
+*.tmp
+*.bak
