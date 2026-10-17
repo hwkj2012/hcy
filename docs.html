@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="docs_page_title">服务器文档 - HCY 无规则生存服务器</title>
+    <link rel="icon" href="./img/icon.png">
+
+    <!-- 字体：字工厂浮生行楷 -->
+    <link href="static/css/fangsheng-font.css" rel="stylesheet">
+    <link href="static/css/all.min.css" rel="stylesheet">
+    <script src="static/js/js.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#2364D2', secondary: '#3B82F6' }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="static/css/docs.css">
+    <link rel="stylesheet" href="static/css/hcy-glass.css">
+</head>
+<body>
+
+<!-- ====== 顶部导航栏 ====== -->
+<header class="docs-header">
+    <div class="docs-header-inner">
+        <a href="index.html" class="docs-back" id="docs-back-btn">
+            <i class="fas fa-arrow-left"></i>
+            <span data-i18n="docs_back">返回首页</span>
+        </a>
+        <div class="docs-brand">
+            <span class="brand-mark">HCY</span>
+            <span data-i18n="docs_title">HCY 服务器文档</span>
+        </div>
+        <div class="docs-header-right">
+            <div class="lang-dropdown docs-lang-dropdown">
+                <button class="lang-toggle-btn lang-current flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-sm font-medium" aria-label="切换语言">🌐</button>
+                <div class="lang-dropdown-menu">
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="zh">🇨🇳 中文</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="en">🇺🇸 English</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="ko">🇰🇷 한국어</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="ja">🇯🇵 日本語</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="ru">🇷🇺 Русский</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="es">🇪🇸 Español</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="fr">🇫🇷 Français</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="de">🇩🇪 Deutsch</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="pt">🇧🇷 Português</a>
+                    <a href="javascript:void(0)" class="lang-dropdown-item" data-lang="th">🇹🇭 ไทย</a>
+                </div>
+            </div>
+            <div class="docs-header-meta">
+                <i class="far fa-clock"></i>
+                <span data-i18n="docs_updated">最后更新：2026 年 10 月</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ====== 主体布局：侧边栏 + 内容 ====== -->
+<div class="docs-layout">
+
+    <!-- 侧边目录 -->
+    <aside class="docs-sidebar" id="docs-sidebar">
+        <div class="docs-sidebar-title">
+            <i class="fas fa-list-ul"></i>
+            <span data-i18n="docs_nav_label">导航</span>
+        </div>
+        <nav class="docs-toc">
+            <a href="#announcement" data-target="announcement"><i class="fas fa-bullhorn"></i><span data-i18n="docs_nav_announce">公告</span></a>
+            <a href="#updates" data-target="updates"><i class="fas fa-rocket"></i><span data-i18n="docs_nav_updates">更新内容</span></a>
+            <a href="#help" data-target="help"><i class="fas fa-question-circle"></i><span data-i18n="docs_nav_help">帮助</span></a>
+            <a href="#moderator" data-target="moderator"><i class="fas fa-gavel"></i><span data-i18n="docs_nav_moderator">协管守则</span></a>
+            <a href="#terms" data-target="terms"><i class="fas fa-file-contract"></i><span data-i18n="docs_nav_terms">服务条款</span></a>
+        </nav>
+    </aside>
+
+    <!-- 移动端目录切换按钮 -->
+    <button class="docs-toc-toggle" id="docs-toc-toggle" aria-label="切换目录">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- 文档内容 -->
+    <main class="docs-main">
+
+        <!-- ====== 公告 ====== -->
+        <section class="docs-section" id="announcement">
+            <div class="docs-section-head">
+                <span class="docs-badge" style="color:#8b5cf6;background:rgba(139,92,246,0.1);">
+                    <i class="fas fa-bullhorn"></i> <span data-i18n="docs_announce_badge">服务器公告</span>
+                </span>
+                <h1 class="docs-section-title" data-i18n="docs_announce_title">游戏公告</h1>
+                <p class="docs-section-sub" data-i18n="docs_announce_sub">来自 HCY Network 的最新通知与规则</p>
+            </div>
+            <div class="docs-section-body docs-markdown" id="announcement-content">
+                <div class="docs-loading"><i class="fas fa-spinner fa-spin"></i><span>正在加载...</span></div>
+            </div>
+        </section>
+
+        <!-- ====== 更新内容 ====== -->
+        <section class="docs-section" id="updates">
+            <div class="docs-section-head">
+                <span class="docs-badge" style="color:#14b8a6;background:rgba(20,184,166,0.1);">
+                    <i class="fas fa-rocket"></i> <span data-i18n="docs_updates_badge">更新日志</span>
+                </span>
+                <h1 class="docs-section-title" data-i18n="docs_updates_title">更新内容</h1>
+                <p class="docs-section-sub" data-i18n="docs_updates_sub">记录服务器版本迭代与功能更新</p>
+            </div>
+            <div class="docs-section-body docs-markdown" id="updates-content">
+                <div class="docs-loading"><i class="fas fa-spinner fa-spin"></i><span>正在加载...</span></div>
+            </div>
+        </section>
+
+        <!-- ====== 帮助 ====== -->
+        <section class="docs-section" id="help">
+            <div class="docs-section-head">
+                <span class="docs-badge" style="color:#3b82f6;background:rgba(59,130,246,0.1);">
+                    <i class="fas fa-question-circle"></i> <span data-i18n="docs_help_badge">玩家指南</span>
+                </span>
+                <h1 class="docs-section-title" data-i18n="docs_help_title">服务器帮助</h1>
+                <p class="docs-section-sub" data-i18n="docs_help_sub">指令速查、特殊指令与机器人指令</p>
+            </div>
+            <div class="docs-section-body" id="help-content">
+                <div class="docs-loading"><i class="fas fa-spinner fa-spin"></i><span>正在加载...</span></div>
+            </div>
+        </section>
+
+        <!-- ====== 协管守则 ====== -->
+        <section class="docs-section" id="moderator">
+            <div class="docs-section-head">
+                <span class="docs-badge" style="color:#f59e0b;background:rgba(245,158,11,0.1);">
+                    <i class="fas fa-gavel"></i> <span data-i18n="docs_moderator_badge">管理规范</span>
+                </span>
+                <h1 class="docs-section-title" data-i18n="docs_moderator_title">协管守则</h1>
+                <p class="docs-section-sub" data-i18n="docs_moderator_sub">服务器协管人员工作规范与行为准则</p>
+            </div>
+            <div class="docs-section-body docs-markdown" id="moderator-content">
+                <div class="docs-loading"><i class="fas fa-spinner fa-spin"></i><span data-i18n="moderator_loading">加载中...</span></div>
+            </div>
+        </section>
+
+        <!-- ====== 服务条款 ====== -->
+        <section class="docs-section" id="terms">
+            <div class="docs-section-head">
+                <span class="docs-badge" style="color:#ef4444;background:rgba(239,68,68,0.1);">
+                    <i class="fas fa-file-contract"></i> <span data-i18n="docs_terms_badge">法律文档</span>
+                </span>
+                <h1 class="docs-section-title" data-i18n="docs_terms_title">HCY 无规则生存服务器 — 服务条款</h1>
+                <p class="docs-section-sub" data-i18n="docs_terms_sub">登录即表示您已阅读、理解并同意本条款的全部内容。</p>
+            </div>
+            <div class="docs-section-body docs-markdown" id="terms-content">
+                <div class="docs-loading"><i class="fas fa-spinner fa-spin"></i><span>正在加载...</span></div>
+            </div>
+
+            <!-- 同意栏（仅在从登录流程进入时展示） -->
+            <div class="docs-agree-bar" id="docs-agree-bar">
+                <label class="docs-agree-check-wrap">
+                    <input type="checkbox" id="terms-agree-check-page">
+                    <span data-i18n="docs_agree_label">我已阅读并同意以上全部服务条款</span>
+                </label>
+                <button id="terms-agree-confirm" class="docs-agree-confirm-btn" disabled>
+                    <i class="fas fa-check"></i><span data-i18n="docs_agree_btn">确认同意</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 页脚 -->
+        <footer class="docs-footer">
+            <p><strong data-i18n="docs_footer1">附则：</strong><span data-i18n="docs_footer1_text">本条款最终解释权归 HCY 服务器管理团队所有。</span></p>
+            <p><span data-i18n="docs_footer2">所有官方 QQ 群：</span><strong>1107400167</strong>　·　<span data-i18n="docs_footer3">联系邮箱：</span><a href="mailto:HCY26mc@163.com">HCY26mc@163.com</a></p>
+            <p class="docs-footer-copy" data-i18n="docs_footer_cr">© 2026 HCY  · HCY 无规则生存服务器</p>
+        </footer>
+    </main>
+</div>
+
+<!-- 返回顶部按钮 -->
+<button class="docs-to-top" id="docs-to-top" aria-label="返回顶部">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+    <script src="static/js/terms.js"></script>
+    <script src="static/js/moderator-rules.js"></script>
+    <script src="static/js/i18n.js"></script>
+    <script src="static/js/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+/* ==========================================================================
+   弹窗层：遮罩 / 玻璃弹窗 / 文档排版（服务条款、协管守则）
+   ========================================================================== */
+
+/* ====== 弹窗遮罩 ====== */
+.modal-mask {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(900px 600px at 50% 0%, rgba(59, 130, 246, 0.28), rgba(9, 32, 61, 0.42) 70%);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.32s ease;
+}
+
+.modal-mask.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ====== 玻璃弹窗 ====== */
+.modal-content {
+    position: relative;
+    background: var(--glass-fill-strong) !important;
+    backdrop-filter: var(--glass-blur-strong);
+    -webkit-backdrop-filter: var(--glass-blur-strong);
+    border: 1px solid var(--glass-stroke);
+    border-radius: 24px;
+    box-shadow: 0 40px 90px -40px rgba(9, 32, 61, 0.75),
+                0 2px 10px rgba(9, 32, 61, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                inset 0 -1px 1px rgba(147, 197, 253, 0.35);
+    color: var(--hcy-text);
+    padding: 1.6rem;
+    width: 100%;
+    margin: 0 1rem;
+    transform: scale(0.95) translateY(8px);
+    transition: transform 0.4s var(--hcy-ease);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-mask.active .modal-content { transform: scale(1) translateY(0); }
+
+.modal-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background:
+        radial-gradient(120% 70% at 10% -10%, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 55%),
+        radial-gradient(100% 60% at 100% 110%, rgba(147, 197, 253, 0.32), rgba(147, 197, 253, 0) 60%);
+}
+
+.modal-content > * { position: relative; z-index: 1; }
+
+.modal-content h3,
+.modal-content h4 { color: var(--hcy-blue-800); }
+
+.modal-close-btn {
+    color: var(--hcy-text-muted);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.modal-close-btn:hover { color: var(--hcy-blue-600); transform: rotate(90deg); }
+
+/* 玩家信息弹窗（浅色玻璃） */
+#player-info-modal .modal-content {
+    background: var(--glass-fill-strong) !important;
+    color: var(--hcy-text);
+}
+#player-info-modal .bg-gray-700 {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border: 1px solid rgba(147, 197, 253, 0.5);
+    border-radius: 14px;
+    color: var(--hcy-text-soft);
+}
+#player-info-modal .text-gray-300 { color: var(--hcy-text-soft) !important; }
+#player-info-modal .text-blue-300 { color: var(--hcy-blue-600) !important; }
+
+/* ====== 玩家悬浮提示 ====== */
+#player-list {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 0.5rem;
+    width: 16rem;
+    background: var(--glass-fill-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    color: var(--hcy-text);
+    border: 1px solid var(--glass-stroke);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow), var(--glass-highlight);
+    padding: 0.85rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s var(--hcy-ease);
+    z-index: 50;
+    pointer-events: none;
+}
+
+#player-count:hover #player-list {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ====== 服务条款 ====== */
+#terms-content { scrollbar-width: thin; scrollbar-color: #3B82F6 rgba(226, 240, 255, 0.8); }
+#terms-content::-webkit-scrollbar { width: 6px; }
+#terms-content::-webkit-scrollbar-track { background: rgba(226, 240, 255, 0.8); border-radius: 3px; }
+#terms-content::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #7FB4F5, #2364D2); border-radius: 3px; }
+
+#terms-content h1 { font-size: 1.75rem; font-weight: 800; color: var(--hcy-blue-900); margin: 1.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(147, 197, 253, 0.55); }
+#terms-content h2 { font-size: 1.35rem; font-weight: 700; color: var(--hcy-blue-800); margin: 1.25rem 0 0.75rem; padding-left: 0.6rem; border-left: 4px solid #3B82F6; }
+#terms-content h3 { font-size: 1.1rem; font-weight: 600; color: var(--hcy-blue-700); margin: 1rem 0 0.5rem; }
+#terms-content p { color: var(--hcy-text-soft); line-height: 1.85; margin-bottom: 0.75rem; }
+#terms-content ul, #terms-content ol { margin: 0.5rem 0 1rem 1.5rem; color: var(--hcy-text-soft); line-height: 1.85; }
+#terms-content li { margin-bottom: 0.4rem; }
+#terms-content strong { color: var(--hcy-blue-900); font-weight: 700; }
+#terms-content blockquote {
+    background: rgba(255, 255, 255, 0.62);
+    border-left: 4px solid #3B82F6;
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0 14px 14px 0;
+    color: var(--hcy-text-soft);
+    font-style: italic;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+#terms-content hr { border: none; border-top: 1px solid rgba(147, 197, 253, 0.5); margin: 1.5rem 0; }
+#terms-content code { background: rgba(255, 255, 255, 0.8); padding: 0.15rem 0.4rem; border-radius: 6px; font-size: 0.9em; color: #1B4F9C; border: 1px solid rgba(147, 197, 253, 0.5); }
+#terms-content .warning-tip { background: rgba(254, 226, 226, 0.78); border-left: 4px solid #ef4444; padding: 0.8rem 1rem; margin: 1rem 0; border-radius: 0 14px 14px 0; color: #991b1b; }
+#terms-content .info-tip { background: rgba(219, 234, 254, 0.85); border-left: 4px solid #3B82F6; padding: 0.8rem 1rem; margin: 1rem 0; border-radius: 0 14px 14px 0; color: #1e40af; }
+
+/* ====== 协管守则 ====== */
+#moderator-content { scrollbar-width: thin; scrollbar-color: #3B82F6 rgba(226, 240, 255, 0.8); }
+#moderator-content::-webkit-scrollbar { width: 6px; }
+#moderator-content::-webkit-scrollbar-track { background: rgba(226, 240, 255, 0.8); border-radius: 3px; }
+#moderator-content::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #7FB4F5, #2364D2); border-radius: 3px; }
+
+#moderator-content h2 { font-size: 1.5rem; font-weight: 700; color: var(--hcy-blue-900); margin: 1.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(147, 197, 253, 0.55); }
+#moderator-content h3 { font-size: 1.15rem; font-weight: 600; color: var(--hcy-blue-800); margin: 1rem 0 0.5rem; }
+#moderator-content p { color: var(--hcy-text-soft); line-height: 1.85; margin-bottom: 0.75rem; }
+#moderator-content blockquote { background: rgba(219, 234, 254, 0.8); border-left: 4px solid #3B82F6; padding: 0.8rem 1rem; margin: 1rem 0; border-radius: 0 14px 14px 0; color: #1e40af; font-style: italic; }
+#moderator-content hr { border: none; border-top: 1px solid rgba(147, 197, 253, 0.5); margin: 1.5rem 0; }
+#moderator-content strong { color: var(--hcy-blue-900); font-weight: 700; }
+#moderator-content code { background: rgba(255, 255, 255, 0.8); padding: 0.15rem 0.4rem; border-radius: 6px; font-size: 0.9em; color: #1B4F9C; border: 1px solid rgba(147, 197, 253, 0.5); }

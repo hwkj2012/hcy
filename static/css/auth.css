@@ -1,0 +1,105 @@
+﻿/* ====== 登录系统 ====== */
+#nav-login-btn:hover { opacity: 0.9; transform: scale(1.02); }
+#nav-login-btn:active { transform: scale(0.95); }
+
+#auth-modal input:focus {
+    border-color: #06b6d4 !important;
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15) !important;
+}
+
+.auth-tab { transition: all 0.25s ease; }
+.auth-tab.bg-white { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.auth-form { transition: opacity 0.2s ease; }
+
+/* 用户头像按钮 */
+.user-avatar-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #06b6d4, #14b8a6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    position: relative;
+}
+.user-avatar-btn:hover { transform: scale(1.1); border-color: rgba(255,255,255,0.5); }
+
+/* 用户下拉菜单 */
+.user-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    min-width: 160px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    z-index: 100;
+}
+.user-dropdown.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.user-dropdown a { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 8px; color: #374151; font-size: 0.9rem; transition: all 0.15s; text-decoration: none; }
+.user-dropdown a:hover { background-color: #f3f4f6; color: #007AFF; }
+.user-dropdown .dropdown-divider { height: 1px; background: #e5e7eb; margin: 4px 8px; }
+.user-dropdown .logout-link { color: #ef4444; }
+.user-dropdown .logout-link:hover { background: #fef2f2; color: #dc2626; }
+
+/* 移动端登录状态 */
+.mobile-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #06b6d4, #14b8a6);
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 8px;
+}
+.mobile-user-info .mobile-user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+@keyframes loginSuccess {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+.login-success-anim { animation: loginSuccess 0.4s ease-out; }
+
+/* ====== 服务条款同意勾选 ====== */
+#terms-agree-wrap { transition: background-color 0.2s ease; border-radius: 0.5rem; }
+#terms-agree-wrap:hover { background-color: #f9fafb; }
+#terms-agree-check {
+    accent-color: #06b6d4;
+    cursor: pointer;
+}
+#terms-agree-wrap.terms-shake {
+    animation: termsShake 0.4s ease;
+}
+@keyframes termsShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+/* 开发中遮罩暗色 */
+[data-theme="dark"] #auth-dev-overlay { background: rgba(15,23,42,0.97) !important; }
+[data-theme="dark"] #auth-dev-overlay h3 { color: #e2e8f0 !important; }
+[data-theme="dark"] #auth-dev-overlay p { color: #94a3b8 !important; }

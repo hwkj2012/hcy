@@ -1,0 +1,46 @@
+/* ==========================================================================
+   站点字体：字工厂浮生行楷
+   --------------------------------------------------------------------------
+   说明：字工厂浮生行楷为商业字体，默认调用系统已安装的字体文件（local）。
+   若访问者的设备未安装该字体，则按下面的回退链依次降级到本机行楷字体，
+   保证整体仍是同一“行楷 / 手写”气质。
+   如需 100% 一致，把授权字体文件放到 static/font/ 并在本文件顶部补充：
+
+   @font-face {
+       font-family: 'HCY FangSheng';
+       src: url('../font/zgc-fangsheng-xingkai.woff2') format('woff2');
+       font-display: swap;
+   }
+   ========================================================================== */
+
+@font-face {
+    font-family: 'HCY FangSheng';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: local('字工厂浮生行楷'),
+         local('字工厂-浮生行楷'),
+         local('字工厂 浮生行楷'),
+         local('浮生行楷'),
+         local('ZCOOL FangShengXingKai'),
+         local('FangShengXingKai'),
+         local('FangSheng XingKai');
+}
+
+/* 西文 / 数字部分（行楷字体里的拉丁字形较窄，这里做一点补充回退） */
+:root {
+    --font-hcy: 'HCY FangSheng',
+                '字工厂浮生行楷',
+                '浮生行楷',
+                '华文行楷',
+                'STXingkai',
+                '行楷-简',
+                'Xingkai SC',
+                'Ma Shan Zheng',
+                'LXGW WenKai',
+                '楷体',
+                'KaiTi',
+                'PingFang SC',
+                'Microsoft YaHei',
+                sans-serif;
+}

@@ -1,0 +1,160 @@
+/* ==========================================================================
+   基础层：色彩变量 / 字体 / 页面底色 / 滚动条
+   主题：蓝色浅色系 + 液态玻璃（配套 hcy-glass.css）
+   ========================================================================== */
+
+:root {
+    /* 主色（蓝色系） */
+    --primary: #2364D2;
+    --secondary: #3B82F6;
+    --hcy-blue-900: #0B2A53;
+    --hcy-blue-800: #123A6E;
+    --hcy-blue-700: #1B4F9C;
+    --hcy-blue-600: #2364D2;
+    --hcy-blue-500: #3B82F6;
+    --hcy-blue-400: #60A5FA;
+    --hcy-sky: #93C7FF;
+    --hcy-ice: #EAF4FF;
+
+    /* 文字 */
+    --hcy-text: #10294B;
+    --hcy-text-soft: #2F4C77;
+    --hcy-text-muted: #5C7799;
+
+    /* 液态玻璃材质 */
+    --glass-fill: linear-gradient(150deg,
+            rgba(255, 255, 255, 0.78) 0%,
+            rgba(236, 246, 255, 0.56) 42%,
+            rgba(214, 233, 255, 0.42) 100%);
+    --glass-fill-strong: linear-gradient(150deg,
+            rgba(255, 255, 255, 0.92) 0%,
+            rgba(240, 248, 255, 0.82) 55%,
+            rgba(222, 238, 255, 0.7) 100%);
+    --glass-stroke: rgba(255, 255, 255, 0.85);
+    --glass-stroke-soft: rgba(147, 197, 253, 0.55);
+    --glass-blur: blur(22px) saturate(180%);
+    --glass-blur-strong: blur(34px) saturate(190%);
+    --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95),
+                       inset 0 -1px 1px rgba(147, 197, 253, 0.35);
+    --glass-shadow: 0 24px 60px -26px rgba(13, 54, 110, 0.45),
+                    0 2px 10px rgba(13, 54, 110, 0.06);
+    --glass-shadow-hover: 0 34px 80px -28px rgba(13, 54, 110, 0.55),
+                          0 4px 14px rgba(13, 54, 110, 0.08);
+    --glass-radius: 22px;
+
+    /* 动效 */
+    --hcy-ease: cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+/* ---------- 字体：字工厂浮生行楷 ---------- */
+* {
+    font-family: var(--font-hcy, 'HCY FangSheng', '华文行楷', '楷体', 'Microsoft YaHei', sans-serif) !important;
+    letter-spacing: 0.02em;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 16px;
+    color: var(--hcy-text);
+    position: relative;
+    background-color: #EAF3FF;
+    background-image:
+        radial-gradient(1100px 720px at 8% -12%, #D8EBFF 0%, rgba(216, 235, 255, 0) 62%),
+        radial-gradient(980px 760px at 96% 4%, #CDE3FF 0%, rgba(205, 227, 255, 0) 58%),
+        radial-gradient(1200px 900px at 50% 116%, #DDEFFF 0%, rgba(221, 239, 255, 0) 62%),
+        linear-gradient(180deg, #F7FBFF 0%, #EAF3FF 46%, #DCEBFF 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/* 液态光斑层（动态，与玻璃材质相互映衬） */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -18vmax;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(closest-side, rgba(96, 165, 250, 0.42), rgba(96, 165, 250, 0) 70%) 18% 22% / 46vmax 46vmax no-repeat,
+        radial-gradient(closest-side, rgba(147, 197, 253, 0.46), rgba(147, 197, 253, 0) 70%) 82% 30% / 40vmax 40vmax no-repeat,
+        radial-gradient(closest-side, rgba(59, 130, 246, 0.26), rgba(59, 130, 246, 0) 72%) 55% 84% / 52vmax 52vmax no-repeat;
+    filter: blur(8px);
+    animation: hcyLiquidDrift 26s ease-in-out infinite alternate;
+}
+
+/* 细腻噪点，让玻璃表面有真实磨砂质感 */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.32;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+@keyframes hcyLiquidDrift {
+    0%   { transform: translate3d(-2%, -1%, 0) scale(1); }
+    50%  { transform: translate3d(1.5%, 2%, 0) scale(1.06); }
+    100% { transform: translate3d(3%, -2%, 0) scale(1.02); }
+}
+
+::selection {
+    background: rgba(59, 130, 246, 0.28);
+    color: var(--hcy-blue-900);
+}
+
+/* 全局滚动条（蓝色） */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: rgba(226, 240, 255, 0.7); border-radius: 10px; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #7FB4F5, #2364D2);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #4A8DF0, #1B4F9C);
+}
+
+/* Font Awesome 修复（必须放在通用字体规则之后） */
+.fab, .fa, .fas, .far, .fal { font-family: "Font Awesome 6 Free" !important; font-weight: 900; }
+.fab { font-family: "Font Awesome 6 Brands" !important; }
+.fas { font-family: "Font Awesome 6 Free" !important; font-weight: 900; }
+.far { font-family: "Font Awesome 6 Free" !important; font-weight: 400; }
+
+/* 渐变色文字通用 */
+.bg-clip-text { -webkit-background-clip: text; background-clip: text; }
+
+/* ====== 语言下拉菜单 ====== */
+.lang-dropdown { position: relative; display: inline-flex; }
+.lang-current {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.lang-current span:first-child { font-size: 1rem; line-height: 1; }
+.lang-current span:last-child { font-size: 0.75rem; font-weight: 600; }
+.lang-dropdown-menu {
+    position: absolute; top: calc(100% + 8px); right: 0;
+    min-width: 176px;
+    background: var(--glass-fill-strong);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-stroke);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow), var(--glass-highlight);
+    opacity: 0; visibility: hidden; transform: translateY(-6px);
+    transition: all 0.24s var(--hcy-ease); z-index: 100; overflow: hidden;
+}
+.lang-dropdown-menu.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-dropdown-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 16px; color: var(--hcy-text-soft);
+    font-size: 0.85rem; text-decoration: none;
+    transition: all 0.15s ease; cursor: pointer;
+}
+.lang-dropdown-item:hover { background: rgba(59, 130, 246, 0.12); color: var(--hcy-blue-600); }
+.lang-dropdown-item.active { background: rgba(59, 130, 246, 0.18); color: var(--hcy-blue-700); font-weight: 600; }
+.lang-dropdown-item + .lang-dropdown-item { border-top: 1px solid rgba(147, 197, 253, 0.35); }

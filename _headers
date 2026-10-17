@@ -1,0 +1,29 @@
+# Cloudflare Pages 响应头配置
+# 文档: https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-DNS-Prefetch-Control: on
+
+# 字体：内容不可变，长期缓存
+/static/font/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 图片
+/img/*
+  Cache-Control: public, max-age=604800
+/static/picture/*
+  Cache-Control: public, max-age=604800
+
+# 样式与脚本：一周缓存（可随时改名/加版本号突破缓存）
+/static/css/*
+  Cache-Control: public, max-age=604800
+/static/js/*
+  Cache-Control: public, max-age=604800
+
+# HTML 每次都校验，保证更新立即生效
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

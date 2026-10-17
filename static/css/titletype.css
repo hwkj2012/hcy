@@ -1,0 +1,13 @@
+/* ====== 打字机光标效果 ====== */
+#typing-title::after {
+    content: '|';
+    animation: cursorBlink 0.8s step-end infinite;
+    color: #2364D2;
+    font-weight: 100;
+    margin-left: 2px;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}

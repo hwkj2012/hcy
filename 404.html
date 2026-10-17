@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>404 - 页面不存在 | HCY 无规则生存服务器</title>
+    <link rel="icon" href="./img/icon.png">
+    <link rel="stylesheet" href="static/css/all.min.css">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+            color: #eef2ff;
+            background: radial-gradient(1200px 600px at 15% 10%, #1e3a8a 0%, transparent 55%),
+                        radial-gradient(900px 500px at 85% 85%, #1d4ed8 0%, transparent 50%),
+                        #070b18;
+            overflow: hidden;
+        }
+        /* 背景光斑 */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: .35;
+            pointer-events: none;
+            animation: float 14s ease-in-out infinite;
+        }
+        .blob-1 { width: 380px; height: 380px; background: #2364D2; top: -120px; left: -80px; }
+        .blob-2 { width: 320px; height: 320px; background: #3B82F6; bottom: -120px; right: -60px; animation-delay: -6s; }
+        @keyframes float {
+            0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+            50% { transform: translate3d(20px, -26px, 0) scale(1.08); }
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            max-width: 560px;
+            padding: 44px 36px 40px;
+            text-align: center;
+            border-radius: 24px;
+            background: rgba(17, 24, 44, .62);
+            border: 1px solid rgba(148, 163, 184, .18);
+            box-shadow: 0 24px 70px rgba(2, 6, 23, .65), inset 0 1px 0 rgba(255, 255, 255, .06);
+            -webkit-backdrop-filter: blur(18px) saturate(140%);
+            backdrop-filter: blur(18px) saturate(140%);
+            animation: rise .6s cubic-bezier(.2, .8, .2, 1) both;
+        }
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(18px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .code {
+            font-size: clamp(84px, 22vw, 132px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -.03em;
+            background: linear-gradient(135deg, #93c5fd 0%, #2364D2 45%, #1e40af 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 44px rgba(59, 130, 246, .35);
+            margin: 0;
+        }
+        h1 {
+            margin: 14px 0 8px;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: .02em;
+        }
+        p {
+            margin: 0 auto 26px;
+            max-width: 400px;
+            font-size: 14px;
+            line-height: 1.75;
+            color: #a8b4cc;
+        }
+        p code {
+            padding: 1px 6px;
+            border-radius: 5px;
+            background: rgba(148, 163, 184, .14);
+            font-size: 13px;
+            color: #cbd5e1;
+            word-break: break-all;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+        }
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, #2364D2, #3B82F6);
+            box-shadow: 0 10px 26px rgba(35, 100, 210, .42);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 34px rgba(35, 100, 210, .52); }
+        .btn-ghost {
+            color: #dbeafe;
+            background: rgba(148, 163, 184, .1);
+            border: 1px solid rgba(148, 163, 184, .22);
+        }
+        .btn-ghost:hover { background: rgba(148, 163, 184, .18); transform: translateY(-2px); }
+        .hint {
+            margin-top: 26px;
+            font-size: 12px;
+            color: #64748b;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <main class="card">
+        <div class="code">404</div>
+        <h1>页面走丢了</h1>
+        <p>
+            你访问的地址不存在，可能已经被移动或删除。<br>
+            请检查链接是否正确，或者从主页重新开始。
+        </p>
+        <div class="actions">
+            <a class="btn btn-primary" href="./index.html">
+                <i class="fas fa-house"></i> 返回首页
+            </a>
+            <a class="btn btn-ghost" href="./docs.html">
+                <i class="fas fa-book"></i> 查看文档
+            </a>
+        </div>
+        <div class="hint">HCY 无规则生存服务器 · Minecraft Server</div>
+    </main>
+</body>
+</html>
