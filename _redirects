@@ -1,10 +1,9 @@
-# Cloudflare Pages 重定向 / 重写规则
+# Cloudflare Pages 重定向规则
 # 文档: https://developers.cloudflare.com/pages/configuration/redirects/
-
-# 便捷短链接
-/docs            /docs.html      301
-/docs/           /docs.html      301
-/index.html      /               301
-
-# 服务器 IP 直达页（如后续需要可保留）
-/ip              /index.html#ip  301
+#
+# ⚠️ 重要：Pages 默认开启「美化 URL」（Pretty URLs），会把 /xxx.html 自动 308 跳转到 /xxx。
+#    因此这里绝对不要再写 /docs → /docs.html 这类规则，否则两边对跳会形成死循环。
+#
+# 如需把其他路径指向文档页，只写单向后缀即可，例如：
+# /help    /docs     301
+# /terms   /docs     301
