@@ -1,0 +1,15 @@
+name = "hcy-auth"
+main = "src/index.mjs"
+compatibility_date = "2026-11-01"
+
+# D1 数据库绑定（部署后由脚本自动填入 database_id）
+[[d1_databases]]
+binding = "DB"
+database_name = "hcy-auth"
+database_id = "PLACEHOLDER"
+
+[vars]
+ALLOWED_ORIGINS = "https://hcymc.pages.dev,http://127.0.0.1:8080"
+
+# 敏感值不要写在这里，用 wrangler secret put JWT_SECRET 注入
+# JWT_SECRET = "<用 openssl rand -hex 32 生成>"
