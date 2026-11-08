@@ -472,10 +472,6 @@ input[type="range"] {
 #auth-modal .auth-tab.bg-white { background: #fff !important; color: var(--hcy-blue-600) !important; box-shadow: 0 6px 16px -12px rgba(9, 42, 90, 0.8); }
 #auth-modal label { color: var(--hcy-blue-800); }
 #auth-modal .text-gray-500 { color: var(--hcy-text-muted) !important; }
-#auth-form-register .bg-gradient-to-r {
-    background: linear-gradient(135deg, rgba(219, 234, 254, 0.9), rgba(240, 249, 255, 0.9)) !important;
-    border-color: rgba(147, 197, 253, 0.8) !important;
-}
 #auth-form-register .text-blue-700 { color: var(--hcy-blue-800) !important; }
 #auth-form-register .text-blue-600 { color: var(--hcy-blue-700) !important; }
 
@@ -483,6 +479,7 @@ input[type="range"] {
 #close-moderator-btn,
 .auth-tab-btn,
 #auth-login-btn,
+#auth-register-btn,
 #terms-agree-confirm {
     background: linear-gradient(135deg, #4C93F5, #2364D2) !important;
     border: 1px solid rgba(255, 255, 255, 0.55);

@@ -156,7 +156,7 @@
         player_just_now:'刚刚',
         // Auth
         auth_title_login:'登录', auth_title_register:'注册', auth_tab_login:'登录', auth_tab_register:'注册', auth_confirm_password:'确认密码', auth_btn_register:'注册', auth_btn_registering:'注册中…', auth_register_hint:'此账号为网站独立账号，与游戏内账号无关', auth_register_success:'注册成功，已自动登录', auth_err_username_rule:'用户名只能是 3-20 位字母、数字或下划线', auth_err_password_short:'密码至少 8 位', auth_err_password_mismatch:'两次输入的密码不一致', auth_forgot_hint:'忘记密码请联系管理员重置',
-        auth_username:'用户名', auth_password:'密码', auth_forgot:'忘记密码？',
+        auth_username:'游戏ID', auth_password:'密码', auth_forgot:'忘记密码？',
         auth_agree:'我已阅读并同意', auth_terms_link:'《服务条款》',
         auth_btn_login:'登录', auth_btn_logging:'验证中...', auth_register_title:'无需在此注册',
         auth_register_desc:'请直接在 <strong>HCY 服务器</strong> 中注册：',
@@ -367,7 +367,7 @@
         player_title:'Player Info', player_loading:'Loading...', player_not_found:'Not found',
         player_just_now:'Just now',
         auth_title_login:'Login', auth_title_register:'Register', auth_tab_login:'Login', auth_tab_register:'Register', auth_confirm_password:'Confirm password', auth_btn_register:'Create account', auth_btn_registering:'Creating...', auth_register_hint:'This is a website account, separate from your in-game one', auth_register_success:'Account created and signed in', auth_err_username_rule:'Username must be 3-20 letters, numbers or underscores', auth_err_password_short:'Password must be at least 8 characters', auth_err_password_mismatch:'The two passwords do not match', auth_forgot_hint:'Contact an administrator to reset your password',
-        auth_username:'Username', auth_password:'Password', auth_forgot:'Forgot password?',
+        auth_username:'Game ID', auth_password:'Password', auth_forgot:'Forgot password?',
         auth_agree:'I have read and agree to', auth_terms_link:'Terms of Service',
         auth_btn_login:'Login', auth_btn_logging:'Verifying...', auth_register_title:'No Web Registration',
         auth_register_desc:'Register directly on the <strong>HCY server</strong>:',
