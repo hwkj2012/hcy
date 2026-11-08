@@ -44,7 +44,7 @@
     <script src="static/js/terms.js?v=bc7e7cb7" defer></script>
     <script src="static/js/qq-avatar.js?v=87e6d99d" defer></script>
     <script src="static/js/anti-devtools.js?v=8b005572" defer></script>
-    <script src="static/js/i18n.js?v=7a476597" defer></script>
+    <script src="static/js/i18n.js?v=02bc0708" defer></script>
     <script src="static/js/typing-effect.js?v=4117506d" defer></script>
 
 </head>
@@ -186,11 +186,16 @@
 <section id="ip" class="py-20 bg-primary/5 text-center">
     <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-4xl font-bold mb-8" data-i18n="ip_title">服务器地址</h2>
-        <div class="inline-flex flex-col sm:flex-row items-center gap-6 bg-white px-8 py-6 rounded-lg shadow-sm">
+        <div class="inline-flex flex-col sm:flex-row flex-wrap items-center justify-center gap-6 bg-white px-8 py-6 rounded-lg shadow-sm">
             <div class="inline-flex items-center gap-4">
                 <span class="text-sm text-gray-500" data-i18n="ip_main_line">主线路：</span>
                 <span id="ip-text" class="text-xl md:text-2xl">su7.mc6.cn:43356</span>
                 <button class="copy-btn" data-target="ip-text" data-msg="ip_copy_main"><i class="far fa-copy mr-2"></i><span data-i18n="copy_btn">复制</span></button>
+            </div>
+            <div class="inline-flex items-center gap-4">
+                <span class="text-sm text-gray-500" data-i18n="ip_bedrock_line">基岩版：</span>
+                <span id="ip-text-bedrock" class="text-xl md:text-2xl">su7.mc6.cn:43964</span>
+                <button class="copy-btn" data-target="ip-text-bedrock" data-msg="ip_copy_bedrock"><i class="far fa-copy mr-2"></i><span data-i18n="copy_btn">复制</span></button>
             </div>
             <div class="inline-flex items-center gap-4">
                 <span class="text-sm text-gray-500" data-i18n="ip_second_line">备用线路：</span>
@@ -249,6 +254,17 @@
 		        <h2 class="text-4xl font-bold text-center mb-4" data-i18n="social_title">社交媒体</h2>
 		        <p class="text-gray-500 text-center mb-12" data-i18n="social_subtitle">B站</p>
 		        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+		            <div class="social-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+		                <div class="relative pt-[56.25%] bg-black">
+		                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1sonV6PEpq&page=1&high_quality=1&autoplay=0" class="absolute inset-0 w-full h-full" scrolling="no" border="0" frameborder="0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-presentation"></iframe>
+		                </div>
+		                <div class="p-4">
+		                    <h3 class="font-bold text-gray-800 mb-2 line-clamp-2" data-i18n="social_video_promo_title">HCY 无规则生存服务器宣传视频</h3>
+		                    <a href="https://www.bilibili.com/video/BV1sonV6PEpq/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-sm text-pink-500 hover:text-pink-600 font-medium transition-colors">
+		                        <i class="fab fa-bilibili"></i> <span data-i18n="social_watch_bilibili">在B站观看</span> <i class="fas fa-external-link-alt text-xs"></i>
+		                    </a>
+		                </div>
+		            </div>
 		            <div class="social-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
 		                <div class="relative pt-[56.25%] bg-black">
 		                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1PBeh67ENt&page=1&high_quality=1&autoplay=0" class="absolute inset-0 w-full h-full" scrolling="no" border="0" frameborder="0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-presentation"></iframe>
